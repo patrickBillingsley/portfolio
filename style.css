@@ -5,3 +5,60 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(#333, #888);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.bolt {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    clip-path: polygon(104px 0, 69px 150px, 114px 150px, 72px 300px, 233px 75px, 160px 75px, 201px 0);
+}
+
+.bolt__row {
+    width: 100vw;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch; 
+}
+
+.bolt__row div {
+    width: 100%;
+}
+
+.bolt__row--color1 {
+    background-color: red;
+}
+.bolt__row--color2 {
+    background-color: orange;
+}
+.bolt__row--color3 {
+    background-color: yellow;
+}
+.bolt__row--color4 {
+    background-color: green;
+}
+.bolt__row--color5 {
+    background-color: aqua;
+}
+.bolt__row--color6 {
+    background-color: blue;
+}
+.bolt__row--color7 {
+    background-color: magenta;
+}
+.bolt__row--color8 {
+    background-color: violet;
+}
