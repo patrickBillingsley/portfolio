@@ -23,6 +23,8 @@ body {
     display: flex;
     justify-content: center;
     clip-path: polygon(104px 0, 69px 150px, 114px 150px, 72px 300px, 233px 75px, 160px 75px, 201px 0);
+    z-index: 10;
+    border-right: 10px solid black;
 }
 
 .bolt__row {
@@ -31,7 +33,38 @@ body {
     position: absolute;
     display: flex;
     flex-wrap: wrap;
-    align-items: stretch; 
+    align-items: stretch;
+}
+.bolt__glow {
+    background-color: white;
+    transform: skew(-20deg);
+    position: relative;
+    z-index: -1;
+    filter: blur(10px);
+}
+.bolt__glow--1 {
+    width: 15px;
+    animation: moveRight 5s infinite;
+
+}
+.bolt__glow--2 {
+    width: 12px;
+    animation: moveRight 5s 100ms infinite;
+}
+.bolt__glow--3 {
+    width: 9px;
+    animation: moveRight 5s 200ms infinite;
+}
+@keyframes moveRight {
+    0% {
+        left: -200%;
+    }
+    30% {
+        left: 200%;
+    }
+    100% {
+        left: -200%;
+    }
 }
 
 .bolt__row div {
@@ -39,26 +72,34 @@ body {
 }
 
 .bolt__row--color1 {
-    background-color: red;
+    /* background-color: red; */
+    background-image: linear-gradient(to bottom, rgba(255,90,61,1) 0%, rgba(255,154,77,0.8) 31%, rgba(255,34,5,0.9) 66%, rgba(194,41,21,0.95) 84%, rgba(84,42,40,1) 100%);
 }
 .bolt__row--color2 {
-    background-color: orange;
+    /* background-color: orange; */
+    background-image: linear-gradient(to bottom, rgba(255,139,61,1) 0%, rgba(255,198,77,0.8) 31%, rgba(255,97,5,0.9) 66%, rgba(193,84,21,0.95) 84%, rgba(83,53,40,1) 100%);
 }
 .bolt__row--color3 {
-    background-color: yellow;
+    /* background-color: yellow; */
+    background-image: linear-gradient(to bottom, rgba(255,187,61,1) 0%, rgba(255,243,77,0.8) 31%, rgba(255,159,5,0.9) 66%, rgba(193,127,21,0.95) 84%, rgba(83,63,40,1) 100%);
 }
 .bolt__row--color4 {
-    background-color: green;
+    /* background-color: limegreen; */
+    background-image:  linear-gradient(to bottom, rgba(161,255,61,1) 0%, rgba(118,255,77,0.8) 31%, rgba(143,255,5,0.9) 66%, rgba(116,193,21,0.95) 84%, rgba(66,83,40,1) 100%);
 }
 .bolt__row--color5 {
-    background-color: aqua;
+    /* background-color: cyan; */
+    background-image:  linear-gradient(to bottom, rgba(61,255,236,1) 0%, rgba(77,222,255,0.8) 31%, rgba(5,255,222,0.9) 66%, rgba(21,193,170,0.95) 84%, rgba(40,83,74,1) 100%);
 }
 .bolt__row--color6 {
-    background-color: blue;
+    /* background-color: blue; */
+    background-image: linear-gradient(to bottom, rgba(61,129,255,1) 0%, rgba(77,88,255,0.8) 31%, rgba(5,101,255,0.9) 66%, rgba(21,87,193,0.95) 84%, rgba(40,59,83,1) 100%);
 }
 .bolt__row--color7 {
-    background-color: magenta;
+    /* background-color: magenta; */
+    background-image: linear-gradient(to bottom, rgba(239,61,255,1) 0%, rgba(255,77,219,0.8) 31%, rgba(226,5,255,0.9) 66%, rgba(173,21,193,0.95) 84%, rgba(75,40,83,1) 100%);
 }
 .bolt__row--color8 {
-    background-color: violet;
+    /* background-color: violet; */
+    background-image: linear-gradient(to bottom, rgba(255,148,201,1) 0%, rgba(255,168,187,0.8) 31%, rgba(255,77,172,0.9) 66%, rgba(231,39,142,0.95) 84%, rgba(103,50,82,1) 100%);
 }
