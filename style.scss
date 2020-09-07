@@ -1,0 +1,40 @@
+$text-color: #eee;
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background-color: #aaa;
+    background-image: url('./portfolio_image.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+nav {
+    width: 40%;
+    text-align: right;
+    position: absolute;
+    top: 45%;
+}
+li {
+    font-size: 2rem;
+    list-style-type: none;
+    margin-bottom: 1rem;
+}
+a {
+    display: block;
+    background-color: #000;
+    width: 100%;
+    height: 1.25em;
+    text-decoration: none;
+    color: #fff;
+    mix-blend-mode: multiply;
+}
