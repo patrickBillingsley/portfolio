@@ -8,12 +8,262 @@
   font-family: monospace;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   width: 100%;
+  position: relative;
+}
+
+nav {
+  width: 100%;
   height: 100vh;
-  background-color: #aaa;
-  background-image: url("./portfolio_image.jpg");
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+}
+
+li {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.nav {
+  width: 15%;
+  height: 50vh;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: space-evenly;
+      align-content: space-evenly;
+  position: absolute;
+  top: 25vh;
+}
+
+.home {
+  width: 100%;
+  height: 100vh;
+  background-color: beige;
+  position: relative;
+}
+
+.home__image {
+  width: 85%;
+  height: 99vh;
+  border-radius: 50px 0 0 50px;
+  background-image: url("/portfolio_image.jpg");
   background-size: cover;
-  background-position: center;
+  position: absolute;
+  right: 0;
+}
+
+.projects {
+  width: 100%;
+  height: 100vh;
+  border-radius: 0 0 50px 50px;
+  background-color: beige;
+  position: relative;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 15% (1fr)[6] 15%;
+      grid-template-columns: 15% repeat(6, 1fr) 15%;
+  -ms-grid-rows: 5rem 3fr 3fr 1fr;
+      grid-template-rows: 5rem 3fr 3fr 1fr;
+      grid-template-areas: ". nav   nav   nav   nav   nav   nav   ." ". card1 card1 card2 card2 card3 card3 ." ". .     card4 card4 card5 card5 .     .";
+  gap: 50px;
+}
+
+.projects::before, .projects::after {
+  content: "";
+  width: 100%;
+  height: 50px;
+  position: absolute;
+  top: -1vh;
+}
+
+.projects::before {
+  background-color: black;
+}
+
+.projects::after {
+  border-top-right-radius: 50px;
+  background-color: beige;
+}
+
+.projects__card {
+  width: 100%;
+  height: 100%;
+}
+
+.projects__card--1 {
+  background-color: red;
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-area: card1;
+}
+
+.projects__card--2 {
+  background-color: green;
+  -ms-grid-row: 2;
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 2;
+  grid-area: card2;
+}
+
+.projects__card--3 {
+  background-color: blue;
+  -ms-grid-row: 2;
+  -ms-grid-column: 6;
+  -ms-grid-column-span: 2;
+  grid-area: card3;
+}
+
+.projects__card--4 {
+  background-color: orange;
+  -ms-grid-row: 3;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 2;
+  grid-area: card4;
+}
+
+.projects__card--5 {
+  background-color: purple;
+  -ms-grid-row: 3;
+  -ms-grid-column: 5;
+  -ms-grid-column-span: 2;
+  grid-area: card5;
+}
+
+.about {
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  position: relative;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  -ms-grid-rows: (1fr)[3];
+      grid-template-rows: repeat(3, 1fr);
+      grid-template-areas: "text1  media2 media4" "media1 text2  media4" "media1 media3 text3";
+}
+
+.about::after {
+  content: "";
+  width: 100%;
+  height: 50px;
+  background-color: black;
+  position: absolute;
+  top: -50px;
+  left: 0;
+  z-index: -1;
+}
+
+.about__panel {
+  width: 100%;
+  height: 100%;
+}
+
+.about__panel--text {
+  background-color: black;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.about__panel--text1 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: text1;
+}
+
+.about__panel--text2 {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: text2;
+}
+
+.about__panel--text3 {
+  -ms-grid-row: 3;
+  -ms-grid-column: 3;
+  grid-area: text3;
+}
+
+.about__panel--media {
+  background-color: black;
+}
+
+.about__panel--media1 {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  grid-area: media1;
+}
+
+.about__panel--media2 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: media2;
+}
+
+.about__panel--media3 {
+  -ms-grid-row: 3;
+  -ms-grid-column: 2;
+  grid-area: media3;
+}
+
+.about__panel--media4 {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 3;
+  grid-area: media4;
+}
+
+.about__textCard {
+  border-radius: 20px;
+  background-color: beige;
+  padding: 2em;
+  margin: 1em 2em;
+}
+
+.contact {
+  width: 100%;
+  height: 100vh;
+  border-radius: 50px 50px 0 0;
+  background-color: beige;
+  position: relative;
+}
+
+.contact::before {
+  content: "";
+  width: 100%;
+  height: 50px;
+  background-color: black;
+  position: absolute;
+  top: 0px;
+  left: 0;
+  z-index: -1;
 }
 /*# sourceMappingURL=style.css.map */
