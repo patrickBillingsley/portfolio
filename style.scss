@@ -50,25 +50,37 @@ a {
         "contact  ."
         ".        .";
     align-items: center;
-    &__home {
-        grid-area: home;
+    &__home,
+    &__projects,
+    &__about,
+    &__contact {
         position: sticky;
         top: 1vh;
+        transition: transform 100ms ease-in;
+    }
+    &__home {
+        grid-area: home;
+        &--hor {
+            transform: translateX(10vw);
+        }
     }
     &__projects {
         grid-area: projects;
-        position: sticky;
-        top: 1vh;
+        &--hor {
+            transform: translateX(30vw);
+        }
     }
     &__about {
         grid-area: about;
-        position: sticky;
-        top: 1vh;
+        &--hor {
+            transform: translateX(50vw);
+        }
     }
     &__contact {
         grid-area: contact;
-        position: sticky;
-        top: 1vh;
+        &--hor {
+            transform: translateX(70vw);
+        }
     }
 }
 @keyframes homeMove {
@@ -144,7 +156,7 @@ a {
         width: 85%;
         height: 99vh;
         border-radius: 50px 0 0 50px;
-        background-image: url("/portfolio_image.jpg");
+        background-image: url("./portfolio_image.jpg");
         background-size: cover;
         position: absolute;
         right: 0;

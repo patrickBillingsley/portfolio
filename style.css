@@ -58,40 +58,58 @@ a {
           align-items: center;
 }
 
+.nav__home, .nav__projects, .nav__about, .nav__contact {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 1vh;
+  -webkit-transition: -webkit-transform 100ms ease-in;
+  transition: -webkit-transform 100ms ease-in;
+  transition: transform 100ms ease-in;
+  transition: transform 100ms ease-in, -webkit-transform 100ms ease-in;
+}
+
 .nav__home {
   -ms-grid-row: 2;
   -ms-grid-column: 1;
   grid-area: home;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 1vh;
+}
+
+.nav__home--hor {
+  -webkit-transform: translateX(10vw);
+          transform: translateX(10vw);
 }
 
 .nav__projects {
   -ms-grid-row: 3;
   -ms-grid-column: 1;
   grid-area: projects;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 1vh;
+}
+
+.nav__projects--hor {
+  -webkit-transform: translateX(30vw);
+          transform: translateX(30vw);
 }
 
 .nav__about {
   -ms-grid-row: 4;
   -ms-grid-column: 1;
   grid-area: about;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 1vh;
+}
+
+.nav__about--hor {
+  -webkit-transform: translateX(50vw);
+          transform: translateX(50vw);
 }
 
 .nav__contact {
   -ms-grid-row: 5;
   -ms-grid-column: 1;
   grid-area: contact;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 1vh;
+}
+
+.nav__contact--hor {
+  -webkit-transform: translateX(70vw);
+          transform: translateX(70vw);
 }
 
 @-webkit-keyframes homeMove {
@@ -281,7 +299,7 @@ a {
   width: 85%;
   height: 99vh;
   border-radius: 50px 0 0 50px;
-  background-image: url("/portfolio_image.jpg");
+  background-image: url("./portfolio_image.jpg");
   background-size: cover;
   position: absolute;
   right: 0;
