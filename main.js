@@ -1,3 +1,11 @@
+function followScroll() {
+    window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const val = scrolled * 0.5;
+    entry.style.transform = `translateX(${0.45 * val}%)`;
+    });
+};
+
 const navItems = document.querySelectorAll('.anim');
 
 const options = {
@@ -5,17 +13,15 @@ const options = {
     rootMargin: '-25% 0px 0px 0px'
 };
 
-const observer = new IntersectionObserver(function(entries) {
+const observer = new IntersectionObserver(function(entries, observer) {
     entries.forEach(entry => {
         if(!entry.isIntersecting) {
             return;
         }
-        console.log(entry.target);
-        entry.target.style.animation = `100ms ${entry.target.innerText}Move forwards`;
-        console.log(entry.target.style.animation);
+        console.log(entry);
     })
 }, options);
 
 navItems.forEach(navItem => {
     observer.observe(navItem);
-})
+});
