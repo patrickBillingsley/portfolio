@@ -37,19 +37,50 @@ a {
 }
 
 .nav {
-    width: 15%;
-    height: 50%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: space-evenly;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 15% auto;
+    grid-template-rows: 25vh repeat(4, 1fr) 25vh 300vh;
+    grid-template-areas: 
+        ".        ."
+        "home     ."
+        "projects ."
+        "about    ."
+        "contact  ."
+        ".        .";
+    align-items: center;
     &__home,
     &__projects,
     &__about,
     &__contact {
-        width: 100%;
-        text-align: center;
-        display: inline-block;
+        position: sticky;
+        top: 1vh;
+        transition: transform 100ms ease-in;
+    }
+    &__home {
+        grid-area: home;
+        &--hor {
+            transform: translateX(10vw);
+        }
+    }
+    &__projects {
+        grid-area: projects;
+        &--hor {
+            transform: translateX(30vw);
+        }
+    }
+    &__about {
+        grid-area: about;
+        &--hor {
+            transform: translateX(50vw);
+        }
+    }
+    &__contact {
+        grid-area: contact;
+        &--hor {
+            transform: translateX(70vw);
+        }
     }
 }
 @keyframes homeMove {
@@ -125,7 +156,7 @@ a {
         width: 85%;
         height: 99vh;
         border-radius: 50px 0 0 50px;
-        background-image: url("/portfolio_image.jpg");
+        background-image: url("./portfolio_image.jpg");
         background-size: cover;
         position: absolute;
         right: 0;
