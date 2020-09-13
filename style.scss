@@ -8,6 +8,11 @@ $text-color: #eee;
     box-sizing: border-box;
     font-family: monospace;
 }
+*::before,
+*::after {
+    content: "";
+    position: absolute;
+}
 
 html {
     scroll-behavior: smooth;
@@ -34,6 +39,7 @@ nav {
     left: 0;
     z-index: 10;
 }
+
 li {
     list-style: none;
 }
@@ -69,7 +75,6 @@ a {
             padding: 0.5em 1em;
             border-radius: 20px;
             background-color: beige;
-            height: auto;
             display: inline-block;
         }
     }
@@ -108,6 +113,45 @@ a {
         background-size: cover;
         position: absolute;
         right: 0;
+    }
+    &__github {
+        width: 15%;
+        margin-top: 1vh;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        &:hover .home__github__logo {
+            transform: translateX(-5vw);
+        }
+        &:hover .home__github__word {
+            clip-path: inset(0% 0% 0% 0%);
+        }
+        &__logo {
+            font-size: 3rem;
+            padding: 0.1em;
+            border-radius: 50%;
+            background-color: beige;
+            color: #24292e;
+            display: inline-block;
+            position: relative;
+            z-index: 20;
+            transition: transform 200ms;
+        }
+        &__word {
+            width: 15%;
+            padding: 0.125em 0.5em;
+            border-radius: 0 30px 30px 0;
+            background-color: #24292e;
+            color: beige;
+            font-size: 1.5rem;
+            text-align: right;
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            clip-path: inset(0% 50% 0% 50%);
+            transition: clip-path 200ms;
+            z-index: 15;
+        }
     }
 }
 .projects {
