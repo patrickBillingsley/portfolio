@@ -36,8 +36,6 @@ nav {
 }
 li {
     list-style: none;
-    display: flex;
-    justify-content: center;
 }
 a {
     color: black;
@@ -62,13 +60,18 @@ a {
     &__projects,
     &__about,
     &__contact {
-        margin: auto;
-        padding: 0.5em 1em;
-        background-color: beige;
-        border-radius: 20px;
+        text-align: center;
         position: sticky;
         top: 1vh;
         transition: transform 100ms ease-in;
+        & > a {
+            width: 100%;
+            padding: 0.5em 1em;
+            border-radius: 20px;
+            background-color: beige;
+            height: auto;
+            display: inline-block;
+        }
     }
     &__home {
         grid-area: home;

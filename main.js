@@ -8,7 +8,7 @@ const optionsDown = {
 const optionsUp = {
     root: document.querySelector('body'),
     rootMargin: '0px 0px -75% -15%',
-    threshold: 0.75
+    threshold: 0.5
 }
 
 const scrollFollowDown = new IntersectionObserver(function(entries) {
