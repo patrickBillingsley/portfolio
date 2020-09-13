@@ -10,11 +10,21 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-y: scroll;
+  -ms-scroll-snap-type: y mandatory;
+      scroll-snap-type: y mandatory;
 }
 
 body {
   width: 100%;
   position: relative;
+}
+
+section {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  scroll-snap-align: start;
 }
 
 nav {
@@ -116,187 +126,8 @@ a {
           transform: translateX(70vw);
 }
 
-@-webkit-keyframes homeMove {
-  0% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
-  100% {
-    -webkit-transform: translateX(10vw);
-            transform: translateX(10vw);
-  }
-}
-
-@keyframes homeMove {
-  0% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
-  100% {
-    -webkit-transform: translateX(10vw);
-            transform: translateX(10vw);
-  }
-}
-
-@-webkit-keyframes projectsMove {
-  0% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
-  100% {
-    -webkit-transform: translateX(30vw);
-            transform: translateX(30vw);
-  }
-}
-
-@keyframes projectsMove {
-  0% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
-  100% {
-    -webkit-transform: translateX(30vw);
-            transform: translateX(30vw);
-  }
-}
-
-@-webkit-keyframes aboutMove {
-  0% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
-  100% {
-    -webkit-transform: translateX(50vw);
-            transform: translateX(50vw);
-  }
-}
-
-@keyframes aboutMove {
-  0% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
-  100% {
-    -webkit-transform: translateX(50vw);
-            transform: translateX(50vw);
-  }
-}
-
-@-webkit-keyframes contactMove {
-  0% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
-  100% {
-    -webkit-transform: translateX(70vw);
-            transform: translateX(70vw);
-  }
-}
-
-@keyframes contactMove {
-  0% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
-  100% {
-    -webkit-transform: translateX(70vw);
-            transform: translateX(70vw);
-  }
-}
-
-@-webkit-keyframes homeReturn {
-  0% {
-    -webkit-transform: translateX(10vw);
-            transform: translateX(10vw);
-  }
-  100% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
-}
-
-@keyframes homeReturn {
-  0% {
-    -webkit-transform: translateX(10vw);
-            transform: translateX(10vw);
-  }
-  100% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
-}
-
-@-webkit-keyframes projectsReturn {
-  0% {
-    -webkit-transform: translateX(30vw);
-            transform: translateX(30vw);
-  }
-  100% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
-}
-
-@keyframes projectsReturn {
-  0% {
-    -webkit-transform: translateX(30vw);
-            transform: translateX(30vw);
-  }
-  100% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
-}
-
-@-webkit-keyframes aboutReturn {
-  0% {
-    -webkit-transform: translateX(50vw);
-            transform: translateX(50vw);
-  }
-  100% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
-}
-
-@keyframes aboutReturn {
-  0% {
-    -webkit-transform: translateX(50vw);
-            transform: translateX(50vw);
-  }
-  100% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
-}
-
-@-webkit-keyframes contactReturn {
-  0% {
-    -webkit-transform: translateX(70vw);
-            transform: translateX(70vw);
-  }
-  100% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
-}
-
-@keyframes contactReturn {
-  0% {
-    -webkit-transform: translateX(70vw);
-            transform: translateX(70vw);
-  }
-  100% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
-}
-
 .home {
-  width: 100%;
-  height: 100vh;
   background-color: beige;
-  position: relative;
 }
 
 .home__image {
@@ -310,11 +141,8 @@ a {
 }
 
 .projects {
-  width: 100%;
-  height: 100vh;
   border-radius: 0 0 50px 50px;
   background-color: beige;
-  position: relative;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 15% (1fr)[6] 15%;
@@ -388,10 +216,7 @@ a {
 }
 
 .about {
-  width: 100%;
-  height: 100vh;
   background-color: black;
-  position: relative;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[3];
@@ -485,11 +310,8 @@ a {
 }
 
 .contact {
-  width: 100%;
-  height: 100vh;
   border-radius: 50px 50px 0 0;
   background-color: beige;
-  position: relative;
 }
 
 .contact::before {
