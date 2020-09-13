@@ -1,24 +1,34 @@
-// function followScroll() {
-//     window.addEventListener('scroll', () => {
-//     const scrolled = window.pageYOffset;
-//     const val = scrolled * 0.5;
-//     entry.style.transform = `translateX(${0.45 * val}%)`;
-//     });
-// };
-
 const navItems = document.querySelectorAll('.anim');
 
-const options = {
+const optionsDown = {
     root: document.querySelector('body'),
-    rootMargin: '-25% 0px 0px 0px'
+    rootMargin: '-25% -75% 0px 0px',
+    threshold: 0.75
 };
+const optionsUp = {
+    root: document.querySelector('body'),
+    rootMargin: '0px 0px -75% -15%',
+    threshold: 0.75
+}
 
-const scrollFollow = new IntersectionObserver(function(entries) {
+const scrollFollowDown = new IntersectionObserver(function(entries) {
     entries.forEach(entry => {
+        if(!entry.isIntersecting) {
+            return;
+        }
         entry.target.classList.toggle(`nav__${entry.target.innerText}--hor`);
     });
-}, options);
+}, optionsDown);
+const scrollFollowUp = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+        if(!entry.isIntersecting) {
+            return;
+        }
+        entry.target.classList.toggle(`nav__${entry.target.innerText}--hor`);
+    });
+}, optionsUp);
 
 navItems.forEach(navItem => {
-    scrollFollow.observe(navItem);
+    scrollFollowDown.observe(navItem);
+    scrollFollowUp.observe(navItem);
 })
