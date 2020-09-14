@@ -24,6 +24,7 @@ html {
 body {
   width: 100%;
   position: relative;
+  color: #24292e;
 }
 
 section {
@@ -41,6 +42,9 @@ nav {
   right: 0;
   bottom: 0;
   left: 0;
+}
+
+nav * {
   z-index: 10;
 }
 
@@ -49,7 +53,7 @@ li {
 }
 
 a {
-  color: black;
+  color: #24292e;
   text-decoration: none;
 }
 
@@ -147,36 +151,39 @@ a {
 
 .home__github {
   width: 15%;
-  margin-top: 1vh;
-  display: -ms-grid;
-  display: grid;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  height: auto;
+  margin-top: 5vh;
+  display: block;
+  position: absolute;
 }
 
-.home__github:hover .home__github__logo {
+.home__github:hover .home__github__logo,
+.home__github:focus .home__github__logo {
   -webkit-transform: translateX(-5vw);
           transform: translateX(-5vw);
 }
 
-.home__github:hover .home__github__word {
-  -webkit-clip-path: inset(0% 0% 0% 0%);
-          clip-path: inset(0% 0% 0% 0%);
+.home__github:hover .home__github__word,
+.home__github:focus .home__github__word {
+  -webkit-transform: translateX(50%);
+          transform: translateX(50%);
+}
+
+.home__github:hover .home__github__word__wrapper,
+.home__github:focus .home__github__word__wrapper {
+  -webkit-clip-path: inset(0%);
+          clip-path: inset(0%);
 }
 
 .home__github__logo {
+  margin: auto;
   font-size: 3rem;
   padding: 0.1em;
   border-radius: 50%;
   background-color: beige;
   color: #24292e;
-  display: inline-block;
+  display: block;
   position: relative;
-  z-index: 20;
   -webkit-transition: -webkit-transform 200ms;
   transition: -webkit-transform 200ms;
   transition: transform 200ms;
@@ -184,23 +191,46 @@ a {
 }
 
 .home__github__word {
-  width: 15%;
-  padding: 0.125em 0.5em;
+  width: 100%;
+  text-align: right;
+  display: block;
+  padding: 0.125em 1em;
   border-radius: 0 30px 30px 0;
   background-color: #24292e;
   color: beige;
   font-size: 1.5rem;
-  text-align: right;
-  display: inline-block;
   position: absolute;
+  left: -50%;
+  -webkit-transition: -webkit-transform 200ms;
+  transition: -webkit-transform 200ms;
+  transition: transform 200ms;
+  transition: transform 200ms, -webkit-transform 200ms;
+}
+
+.home__github__word__wrapper {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
   left: 0;
-  -webkit-clip-path: inset(0% 50% 0% 50%);
-          clip-path: inset(0% 50% 0% 50%);
+  z-index: 0;
+  -webkit-clip-path: inset(0% 0% 0% 50%);
+          clip-path: inset(0% 0% 0% 50%);
   -webkit-transition: -webkit-clip-path 200ms;
   transition: -webkit-clip-path 200ms;
   transition: clip-path 200ms;
   transition: clip-path 200ms, -webkit-clip-path 200ms;
-  z-index: 15;
 }
 
 .projects {

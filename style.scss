@@ -1,4 +1,4 @@
-$text-color: #eee;
+$black: #24292e;
 
 *,
 *::before,
@@ -22,6 +22,7 @@ html {
 body {
     width: 100%;
     position: relative;
+    color: $black;
 }
 section {
     width: 100%;
@@ -37,14 +38,16 @@ nav {
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 10;
+    & * {
+        z-index: 10;
+    }
 }
 
 li {
     list-style: none;
 }
 a {
-    color: black;
+    color: $black;
     text-decoration: none;
 }
 
@@ -116,41 +119,59 @@ a {
     }
     &__github {
         width: 15%;
-        margin-top: 1vh;
-        display: grid;
-        justify-content: center;
-        align-items: center;
-        &:hover .home__github__logo {
+        height: auto;
+        margin-top: 5vh;
+        display: block;
+        position: absolute;
+        &:hover .home__github__logo,
+        &:focus .home__github__logo {
             transform: translateX(-5vw);
         }
-        &:hover .home__github__word {
-            clip-path: inset(0% 0% 0% 0%);
+        &:hover .home__github__word,
+        &:focus .home__github__word {
+            transform: translateX(50%);
+        }
+        &:hover .home__github__word__wrapper,
+        &:focus .home__github__word__wrapper {
+            clip-path: inset(0%);
         }
         &__logo {
+            margin: auto;
             font-size: 3rem;
             padding: 0.1em;
             border-radius: 50%;
             background-color: beige;
-            color: #24292e;
-            display: inline-block;
+            color: $black;
+            display: block;
             position: relative;
-            z-index: 20;
             transition: transform 200ms;
         }
         &__word {
-            width: 15%;
-            padding: 0.125em 0.5em;
+            width: 100%;
+            text-align: right;
+            display: block;
+            padding: 0.125em 1em;
             border-radius: 0 30px 30px 0;
             background-color: #24292e;
             color: beige;
             font-size: 1.5rem;
-            text-align: right;
-            display: inline-block;
             position: absolute;
-            left: 0;
-            clip-path: inset(0% 50% 0% 50%);
-            transition: clip-path 200ms;
-            z-index: 15;
+            left: -50%;
+            transition: transform 200ms;
+            &__wrapper {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                z-index: 0;
+                clip-path: inset(0% 0% 0% 50%);
+                transition: clip-path 200ms;
+            }
         }
     }
 }
