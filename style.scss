@@ -135,11 +135,12 @@ a {
             animation-name: mugFall
         }
         &__table {
-            // animation-name: tableFall;
-            animation: tableFall 500ms ease-in forwards;
+            animation-name: tableFall;
+            animation-duration: 500ms;
         }
         &__lamp {
             animation-name: lampFall;
+            animation-timing-function: ease-in;
         }
         &__laptop {
             animation-name: laptopFall;
@@ -364,8 +365,12 @@ a {
     }
 }
 @keyframes lampFall {
-    to {
-        transform: translate(-20%) rotate(-20deg);
+    40% {
+        transform: translate(0%, 31%) rotate(10deg);
+    } 60% {
+        transform: translate(0%, 2%) rotate(-18deg);
+    } 100% {
+        transform: translate(-20%, 10%) rotate(-20deg);
     }
 }
 @keyframes laptopFall {

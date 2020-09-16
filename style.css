@@ -184,13 +184,17 @@ a {
 }
 
 .home__image__table {
-  -webkit-animation: tableFall 500ms ease-in forwards;
-          animation: tableFall 500ms ease-in forwards;
+  -webkit-animation-name: tableFall;
+          animation-name: tableFall;
+  -webkit-animation-duration: 500ms;
+          animation-duration: 500ms;
 }
 
 .home__image__lamp {
   -webkit-animation-name: lampFall;
           animation-name: lampFall;
+  -webkit-animation-timing-function: ease-in;
+          animation-timing-function: ease-in;
 }
 
 .home__image__laptop {
@@ -582,16 +586,32 @@ a {
 }
 
 @-webkit-keyframes lampFall {
-  to {
-    -webkit-transform: translate(-20%) rotate(-20deg);
-            transform: translate(-20%) rotate(-20deg);
+  40% {
+    -webkit-transform: translate(0%, 31%) rotate(10deg);
+            transform: translate(0%, 31%) rotate(10deg);
+  }
+  60% {
+    -webkit-transform: translate(0%, 2%) rotate(-18deg);
+            transform: translate(0%, 2%) rotate(-18deg);
+  }
+  100% {
+    -webkit-transform: translate(-20%, 10%) rotate(-20deg);
+            transform: translate(-20%, 10%) rotate(-20deg);
   }
 }
 
 @keyframes lampFall {
-  to {
-    -webkit-transform: translate(-20%) rotate(-20deg);
-            transform: translate(-20%) rotate(-20deg);
+  40% {
+    -webkit-transform: translate(0%, 31%) rotate(10deg);
+            transform: translate(0%, 31%) rotate(10deg);
+  }
+  60% {
+    -webkit-transform: translate(0%, 2%) rotate(-18deg);
+            transform: translate(0%, 2%) rotate(-18deg);
+  }
+  100% {
+    -webkit-transform: translate(-20%, 10%) rotate(-20deg);
+            transform: translate(-20%, 10%) rotate(-20deg);
   }
 }
 
