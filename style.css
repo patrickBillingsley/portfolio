@@ -140,9 +140,12 @@ a {
 }
 
 .home__image {
+  content: url(./resources/laptop.svg);
   width: 85%;
   height: 99vh;
   border-radius: 50px 0 0 50px;
+  background-image: -webkit-gradient(linear, left top, right bottom, from(rgba(50, 50, 50, 0)), to(#323232));
+  background-image: linear-gradient(to bottom right, rgba(50, 50, 50, 0), #323232);
   position: absolute;
   right: 0;
 }
@@ -253,7 +256,7 @@ a {
 }
 
 .projects::before {
-  background-color: black;
+  background-color: #323232;
 }
 
 .projects::after {
