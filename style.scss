@@ -109,13 +109,23 @@ a {
 .home {
     background-color: beige;
     &__image {
-        content: url(./resources/laptop.svg);
         width: 85%;
         height: 99vh;
         border-radius: 50px 0 0 50px;
         background-image: linear-gradient(to bottom right, rgba(50,50,50,0%), rgba(50,50,50,100%));
-        position: absolute;
-        right: 0;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        float: right;
+        position: relative;
+        &__laptop {
+            width: 100%;
+        }
+        &__me {
+            margin: auto;
+            position: absolute;
+            bottom: 0;
+        }
     }
     &__github {
         width: 15%;

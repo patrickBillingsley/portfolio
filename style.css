@@ -140,14 +140,31 @@ a {
 }
 
 .home__image {
-  content: url(./resources/laptop.svg);
   width: 85%;
   height: 99vh;
   border-radius: 50px 0 0 50px;
   background-image: -webkit-gradient(linear, left top, right bottom, from(rgba(50, 50, 50, 0)), to(#323232));
   background-image: linear-gradient(to bottom right, rgba(50, 50, 50, 0), #323232);
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  float: right;
+  position: relative;
+}
+
+.home__image__laptop {
+  width: 100%;
+}
+
+.home__image__me {
+  margin: auto;
   position: absolute;
-  right: 0;
+  bottom: 0;
 }
 
 .home__github {
