@@ -113,18 +113,36 @@ a {
         height: 99vh;
         border-radius: 50px 0 0 50px;
         background-image: linear-gradient(to bottom right, rgba(50,50,50,0%), rgba(50,50,50,100%));
-        display: grid;
+        display: flex;
         justify-content: center;
-        align-items: center;
-        float: right;
         position: relative;
-        &__laptop {
-            width: 100%;
-        }
-        &__me {
-            margin: auto;
+        float: right;
+        overflow: hidden;
+        &__background {
+            height: 99vh;
             position: absolute;
-            bottom: 0;
+            transform-origin: 70% 80%;
+            animation-play-state: paused;
+            animation-delay: calc(var(--scroll) * -2000ms);
+            animation-duration: 1000ms;
+            animation-iteration-count: 1;
+            animation-fill-mode: both;
+        }
+        &__cactus {
+            animation-name: cactusFly;
+        }
+        &__coffeeMug {
+            animation-name: mugFall
+        }
+        &__table {
+            // animation-name: tableFall;
+            animation: tableFall 500ms ease-in forwards;
+        }
+        &__lamp {
+            animation-name: lampFall;
+        }
+        &__laptop {
+            animation-name: laptopFall;
         }
     }
     &__github {
@@ -308,5 +326,50 @@ a {
         top: 0px;
         left: 0;
         z-index: -1;
+    }
+}
+
+
+@keyframes cactusFly {
+    to {
+        transform: translate(-30%, -50%) rotate(-30deg);
+    }
+}
+@keyframes mugFall {
+    to {
+        transform: translate(-8%, 1%) rotate(-20deg);
+    }
+}
+@keyframes tableFall {
+    0% {
+        transform: rotate(0deg);
+    } 12% {
+        transform: rotate(-2.178deg);
+    } 24% {
+        transform: rotate(-8.712deg);
+    } 36% {
+        transform: rotate(-19.602deg);
+    } 54% {
+        transform: rotate(-15.004deg);
+    } 74% {
+        transform: rotate(-19.674deg);
+    } 82% {
+        transform: rotate(-18.75deg);
+    } 92% {
+        transform: rotate(-19.868deg);
+    } 96% {
+        transform: rotate(-19.692deg);
+    } 100% {
+        transform: rotate(-20deg);
+    }
+}
+@keyframes lampFall {
+    to {
+        transform: translate(-20%) rotate(-20deg);
+    }
+}
+@keyframes laptopFall {
+    to {
+        transform: translate(-10%) rotate(-15deg);
     }
 }

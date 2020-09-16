@@ -1,3 +1,7 @@
+window.addEventListener('scroll', () => {
+    document.body.style.setProperty('--scroll', window.pageYOffset / (document.body.offsetHeight - window.innerHeight));
+}, false);
+
 const navItems = document.querySelectorAll('.anim');
 
 const optionsDown = {
