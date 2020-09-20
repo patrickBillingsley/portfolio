@@ -228,7 +228,7 @@ a {
         width: 1%;
         height: 100%;
         flex-grow: 1;
-        transition: flex-grow 250ms;
+        transition: flex-grow 250ms 100ms;
         &:nth-child(1) {
             background-color: red;
         }
@@ -246,13 +246,13 @@ a {
 .about {
     background-color: black;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 4fr repeat(4, 1fr) 4fr;
     grid-template-rows: 3.5rem repeat(3, 1fr);
     grid-template-areas: 
-        ".      .      ."
-        "text1  media1 media2"
-        "media3 text2  media2"
-        "media3 media4 text3";
+        ".      .      .     .     .      ."
+        "text1  text1  text1 text1 media1 media1"
+        "media2 media2 .     .     media1 media1"
+        "media2 media2 text2 text2 text2  text2";
     gap: 1em;
     top: calc(-3.5rem - 50px);
     z-index: -1;
@@ -260,61 +260,44 @@ a {
         &1,
         &2,
         &3,
-        &4,
-        &5,
-        &6,
-        &7 {
+        &4 {
             border-radius: 50px;
+            background-color: beige;
             overflow: hidden;
             border-right: 4px solid #305d8a;
             border-bottom: 2px solid #305d8a;
             position: relative;
         }
         &1 {
-            background-color: red;
             grid-area: text1;
         }
         &2 {
-            background-color: green;
             grid-area: media1;
         }
         &3 {
-            background-color: blue;
             grid-area: media2;
         }
         &4 {
-            background-color: orange;
-            grid-area: media3;
-        }
-        &5 {
-            background-color: seagreen;
             grid-area: text2;
-        }
-        &6 {
-            background-color: cyan;
-            grid-area: media4;
-        }
-        &7 {
-            background-color: yellow;
-            grid-area: text3;
         }
     }
     &__text {
         height: calc(100% - 50px);
-        padding: 2em;
+        padding: 3em;
         border-radius: 50px 50px 0 0;
         background-color: beige;
     }
     &__photo {
-        height: 100%;
+        height: clamp(120%, 100%, 150%);
         margin-left: 50%;
         transform: translate(-50%);
         position: absolute;
         top: 0;
-        &:nth-child(1) {
-            clip-path: inset(0% 50% 0% 50%);
-            animation: swipe 5000ms infinite;
-        }
+        // &:nth-child(1) {
+            // width: 200%;
+            // clip-path: inset(0% 50% 0% 50%);
+            // animation: swipeOut 5000ms ease-in-out infinite;
+        // }
         &:nth-child(2) {
             clip-path: inset(0% 0% 100% 0%);
         }
@@ -386,12 +369,12 @@ a {
         transform: translate(-10%) rotate(-15deg);
     }
 }
-@keyframes swipe {
-    10% {
+@keyframes swipeOut {
+    20% {
         clip-path: inset(0% 0% 0% 0%);
-    } 90% {
+    } 80% {
         clip-path: inset(0% 0% 0% 0%);
     } 100% {
-        clip-path: initial;
+        clip-path: inset(0% 50% 0% 50%);
     }
 }
