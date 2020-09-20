@@ -6,12 +6,12 @@ const navItems = document.querySelectorAll('.anim');
 
 const optionsDown = {
     root: document.querySelector('body'),
-    rootMargin: '-25% -75% 0px 0px',
+    rootMargin: '-20% -75% 0px 0px',
     threshold: 0.5
 };
 const optionsUp = {
     root: document.querySelector('body'),
-    rootMargin: '0px 0px -75% -15%',
+    rootMargin: '0px 0px -80% -15%',
     threshold: 0.5
 }
 
