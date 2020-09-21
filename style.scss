@@ -15,7 +15,7 @@ html {
     scroll-snap-type: y mandatory;
 }
 body {
-    width: 100%;
+    width: 100vw;
     position: relative;
     color: $black;
 }
@@ -254,31 +254,40 @@ a {
         "media2 media2 .     .     media1 media1"
         "media2 media2 text2 text2 text2  text2";
     gap: 1em;
+    overflow: hidden;
     top: calc(-3.5rem - 50px);
     z-index: -1;
     &__card {
-        &1,
-        &2,
-        &3,
-        &4 {
+        &--1,
+        &--2,
+        &--3,
+        &--4 {
             border-radius: 50px;
             background-color: beige;
+            opacity: 0;
             overflow: hidden;
             border-right: 4px solid #305d8a;
             border-bottom: 2px solid #305d8a;
-            position: relative;
         }
-        &1 {
+        &--1 {
             grid-area: text1;
+            transform: translate(-50%);
+            transition: transform 500ms 750ms, opacity 500ms 750ms;
         }
-        &2 {
+        &--2 {
             grid-area: media1;
+            transform: translateY(50%);
+            transition: transform 500ms 250ms, opacity 500ms 250ms;
         }
-        &3 {
+        &--3 {
             grid-area: media2;
+            transform: translateY(-50%);
+            transition: transform 500ms 250ms, opacity 500ms 250ms;
         }
-        &4 {
+        &--4 {
             grid-area: text2;
+            transform: translate(50%);
+            transition: transform 500ms 750ms, opacity 500ms 750ms;
         }
     }
     &__text {
@@ -305,6 +314,10 @@ a {
             clip-path: inset(0% 0% 0% 100%);
         }   
     }
+}
+.appear {
+    opacity: 1;
+    transform: translate(0);
 }
 .contact {
     border-radius: 50px 50px 0 0;
@@ -376,5 +389,10 @@ a {
         clip-path: inset(0% 0% 0% 0%);
     } 100% {
         clip-path: inset(0% 50% 0% 50%);
+    }
+}
+@keyframes slideIn {
+    to {
+        transform: translate(0);
     }
 }
