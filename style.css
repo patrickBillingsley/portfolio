@@ -76,7 +76,7 @@ a {
   transition: transform 100ms ease-in, -webkit-transform 100ms ease-in;
 }
 
-.nav__home > a, .nav__projects > a, .nav__about > a, .nav__contact > a {
+.nav__button {
   width: 80%;
   padding: 0.75em 1em;
   border-radius: 20px;
@@ -130,6 +130,11 @@ a {
           transform: translateX(70vw);
 }
 
+.selected {
+  -webkit-box-shadow: inset -5px -5px 10px rgba(255, 255, 255, 0.05), inset 5px 5px 15px rgba(0, 0, 0, 0.5);
+          box-shadow: inset -5px -5px 10px rgba(255, 255, 255, 0.05), inset 5px 5px 15px rgba(0, 0, 0, 0.5);
+}
+
 .home {
   background-color: #24292e;
   z-index: -1;
@@ -138,9 +143,9 @@ a {
 .home__image {
   width: 85%;
   height: calc(100vh - 50px);
-  border-radius: 50px 0 0 50px;
-  -webkit-box-shadow: inset -5px -5px 10px rgba(255, 255, 255, 0.05), inset 5px 5px 15px rgba(0, 0, 0, 0.5);
-          box-shadow: inset -5px -5px 10px rgba(255, 255, 255, 0.05), inset 5px 5px 15px rgba(0, 0, 0, 0.5);
+  border-radius: 50px 0 0 200px;
+  -webkit-box-shadow: inset 0px -5px 10px rgba(255, 255, 255, 0.05), inset 5px 5px 15px rgba(0, 0, 0, 0.5);
+          box-shadow: inset 0px -5px 10px rgba(255, 255, 255, 0.05), inset 5px 5px 15px rgba(0, 0, 0, 0.5);
   display: -ms-grid;
   display: grid;
   justify-items: center;
@@ -290,6 +295,8 @@ a {
 .projects {
   border-radius: 0 50px 50px 50px;
   background-color: #24292e;
+  -webkit-box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.05), 5px 5px 15px rgba(0, 0, 0, 0.5);
+          box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.05), 5px 5px 15px rgba(0, 0, 0, 0.5);
   display: -ms-grid;
   display: grid;
   justify-items: center;
@@ -314,6 +321,8 @@ a {
   width: 80%;
   height: 75%;
   border-radius: 0 50px 50px 50px;
+  -webkit-box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.05), 5px 5px 15px rgba(0, 0, 0, 0.5);
+          box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.05), 5px 5px 15px rgba(0, 0, 0, 0.5);
   overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -457,16 +466,6 @@ a {
   top: 0;
 }
 
-.about__photo:nth-child(2) {
-  -webkit-clip-path: inset(0% 0% 100% 0%);
-          clip-path: inset(0% 0% 100% 0%);
-}
-
-.about__photo:nth-child(3) {
-  -webkit-clip-path: inset(0% 0% 0% 100%);
-          clip-path: inset(0% 0% 0% 100%);
-}
-
 .appear {
   opacity: 1;
   -webkit-transform: translate(0);
@@ -475,7 +474,9 @@ a {
 
 .contact {
   border-radius: 50px 50px 50px 50px;
-  background-color: #fffff1;
+  background-color: #24292e;
+  -webkit-box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.05), 5px 5px 15px rgba(0, 0, 0, 0.5);
+          box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.05), 5px 5px 15px rgba(0, 0, 0, 0.5);
 }
 
 .contact::before {

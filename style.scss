@@ -68,15 +68,16 @@ a {
         position: sticky;
         top: 1vh;
         transition: transform 100ms ease-in;
-        & > a {
-            width: 80%;
-            padding: 0.75em 1em;
-            border-radius: 20px;
-            background-color: $black;
-            box-shadow: -5px -5px 10px rgba(255,255,255,0.05),
+    }
+    &__button {
+        width: 80%;
+        padding: 0.75em 1em;
+        border-radius: 20px;
+        background-color: $black;
+        box-shadow: 
+            -5px -5px 10px rgba(255,255,255,0.05),
             5px 5px 15px rgba(0,0,0,0.5);
-            display: inline-block;
-        }
+        display: inline-block;
     }
     &__home {
         grid-area: home;
@@ -103,16 +104,21 @@ a {
         }
     }
 }
+.selected {
+    box-shadow: 
+        inset -5px -5px 10px rgba(255,255,255,0.05),
+        inset 5px 5px 15px rgba(0,0,0,0.5);
+}
 .home {
     background-color: $black;
     z-index: -1;
     &__image {
         width: 85%;
         height: calc(100vh - 50px);
-        border-radius: 50px 0 0 50px;
-        box-shadow: inset -5px -5px 10px rgba(255,255,255,0.05),
-        inset 5px 5px 15px rgba(0,0,0,0.5);
-        // background-image: linear-gradient(to bottom right, rgba(36, 41, 46, 0.01), rgba(36,41,46,1));
+        border-radius: 50px 0 0 200px;
+        box-shadow: 
+            inset 0px -5px 10px rgba(255,255,255,0.05),
+            inset 5px 5px 15px rgba(0,0,0,0.5);
         display: grid;
         justify-items: center;
         align-items: center;
@@ -213,6 +219,9 @@ a {
 .projects {
     border-radius: 0 50px 50px 50px;
     background-color: $black;
+    box-shadow: 
+        -5px -5px 10px rgba(255,255,255,0.05),
+        5px 5px 15px rgba(0,0,0,0.5);
     display: grid;
     justify-items: center;
     align-items: center;
@@ -231,6 +240,9 @@ a {
         width: 80%;
         height: 75%;
         border-radius: 0 50px 50px 50px;
+        box-shadow: 
+            -5px -5px 10px rgba(255,255,255,0.05),
+            5px 5px 15px rgba(0,0,0,0.5);
         overflow: hidden;
         display: flex;
     }
@@ -325,18 +337,7 @@ a {
         margin-left: 50%;
         transform: translate(-50%);
         position: absolute;
-        top: 0;
-        // &:nth-child(1) {
-            // width: 200%;
-            // clip-path: inset(0% 50% 0% 50%);
-            // animation: swipeOut 5000ms ease-in-out infinite;
-        // }
-        &:nth-child(2) {
-            clip-path: inset(0% 0% 100% 0%);
-        }
-        &:nth-child(3) {
-            clip-path: inset(0% 0% 0% 100%);
-        }   
+        top: 0; 
     }
     // &__distort {
     //     width: 100%;
@@ -355,7 +356,10 @@ a {
 }
 .contact {
     border-radius: 50px 50px 50px 50px;
-    background-color: $beige;
+    background-color: $black;
+    box-shadow: 
+        -5px -5px 10px rgba(255,255,255,0.05),
+        5px 5px 15px rgba(0,0,0,0.5);
     &::before {
         content: "";
         width: 100%;
