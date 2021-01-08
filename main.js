@@ -19,7 +19,7 @@ const appearOptions =  {
     threshold: 0.25
 };
 
-const scrollFollowDown = new IntersectionObserver(function(entries) {
+const scrollFollowDown = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if(!entry.isIntersecting) {
             return;
@@ -27,7 +27,7 @@ const scrollFollowDown = new IntersectionObserver(function(entries) {
         entry.target.classList.toggle(`nav__${entry.target.innerText}--hor`);
     });
 }, optionsDown);
-const scrollFollowUp = new IntersectionObserver(function(entries) {
+const scrollFollowUp = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if(!entry.isIntersecting) {
             return;
@@ -35,7 +35,7 @@ const scrollFollowUp = new IntersectionObserver(function(entries) {
         entry.target.classList.toggle(`nav__${entry.target.innerText}--hor`);
     });
 }, optionsUp);
-const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+const appearOnScroll = new IntersectionObserver((entries, appearOnScroll) => {
     entries.forEach(entry => {
         if(!entry.isIntersecting) {
             return;
@@ -46,10 +46,10 @@ const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll
 }, appearOptions);
 
 
-navItems.forEach(navItem => {
-    scrollFollowDown.observe(navItem);
-    scrollFollowUp.observe(navItem);
+navItems.forEach(item => {
+    scrollFollowDown.observe(item);
+    scrollFollowUp.observe(item);
 });
-aboutItems.forEach(aboutItem => {
-    appearOnScroll.observe(aboutItem);
+aboutItems.forEach(item => {
+    appearOnScroll.observe(item);
 });

@@ -51,14 +51,14 @@ a {
 }
 
 .nav {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 15% auto;
       grid-template-columns: 15% auto;
-  -ms-grid-rows: 25vh (1fr)[4] 25vh 300vh;
-      grid-template-rows: 25vh repeat(4, 1fr) 25vh 300vh;
+  -ms-grid-rows: 25vh (1fr)[4] 25vh;
+      grid-template-rows: 25vh repeat(4, 1fr) 25vh;
       grid-template-areas: ".        ." "home     ." "projects ." "about    ." "contact  ." ".        .";
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -66,6 +66,7 @@ a {
 }
 
 .nav__home, .nav__projects, .nav__about, .nav__contact {
+  font-size: 2rem;
   text-align: center;
   position: -webkit-sticky;
   position: sticky;
@@ -224,7 +225,7 @@ a {
 
 .home__github__logo {
   margin: auto;
-  font-size: 3rem;
+  font-size: 8rem;
   padding: 0.1em;
   border-radius: 50%;
   background-color: beige;
@@ -245,7 +246,7 @@ a {
   border-radius: 0 30px 30px 0;
   background-color: #24292e;
   color: beige;
-  font-size: 1.5rem;
+  font-size: 3rem;
   position: absolute;
   left: -50%;
   -webkit-transition: -webkit-transform 200ms;
@@ -319,14 +320,33 @@ a {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
-  -webkit-transition: flex-grow 250ms 100ms, -webkit-box-flex 250ms 100ms;
-  transition: flex-grow 250ms 100ms, -webkit-box-flex 250ms 100ms;
-  transition: flex-grow 250ms 100ms;
-  transition: flex-grow 250ms 100ms, -webkit-box-flex 250ms 100ms, -ms-flex-positive 250ms 100ms;
+  -webkit-transition: flex-grow 500ms 100ms ease-in-out, -webkit-box-flex 500ms 100ms ease-in-out;
+  transition: flex-grow 500ms 100ms ease-in-out, -webkit-box-flex 500ms 100ms ease-in-out;
+  transition: flex-grow 500ms 100ms ease-in-out;
+  transition: flex-grow 500ms 100ms ease-in-out, -webkit-box-flex 500ms 100ms ease-in-out, -ms-flex-positive 500ms 100ms ease-in-out;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+.projects__project h1 {
+  position: absolute;
+  right: 0;
+  margin-right: 50%;
+}
+
+.projects__project__image {
+  height: 90%;
+  width: auto;
+  position: relative;
+  left: 50%;
+  -webkit-transition: left 500ms 100ms ease-in-out;
+  transition: left 500ms 100ms ease-in-out;
 }
 
 .projects__project:nth-child(1) {
-  background-color: red;
+  background-color: #ff3131;
 }
 
 .projects__project:nth-child(2) {
@@ -341,6 +361,10 @@ a {
   -webkit-box-flex: 10;
       -ms-flex-positive: 10;
           flex-grow: 10;
+}
+
+.projects__project:hover .projects__project__image {
+  left: 25%;
 }
 
 .about {
