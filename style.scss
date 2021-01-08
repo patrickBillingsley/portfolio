@@ -18,28 +18,31 @@ html {
 }
 
 body {
-    width: 100vw;
-    position: relative;
     color: $black;
+    position: relative;
 }
 
 section {
     width: 100%;
     height: 100vh;
-    position: relative;
+    // position: relative;
     scroll-snap-align: start;
 }
 
 nav {
-    width: 100%;
-    position: absolute;
+    width: 15vw;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 25vh 1fr 25vh;
+    grid-template-areas: 
+        "github"
+        "nav-bar"
+        ".";
+    place-items: center;
+    position: fixed;
     top: 0;
-    right: 0;
-    bottom: 0;
     left: 0;
-    & * {
-        z-index: 10;
-    }
+    z-index: 10;
 }
 
 li {
@@ -51,71 +54,69 @@ a {
     text-decoration: none;
 }
 
-.nav {
-    width: 100vw;
-    height: 100vh;
-    display: grid;
-    grid-template-columns: 15% auto;
-    grid-template-rows: 25vh repeat(4, 1fr) 25vh;
-    grid-template-areas: 
-        ".        ."
-        "home     ."
-        "projects ."
-        "about    ."
-        "contact  ."
-        ".        .";
-    align-items: center;
 
+
+.nav-bar {
+    width: 100%;
+    height: 100%;
+    grid-area: nav-bar;
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    align-items: center;
+    // position: relative;
+    // position: sticky;
+    // top: 25vh;
+    
     &__home,
     &__projects,
     &__about,
     &__contact {
         font-size: 2rem;
         text-align: center;
+        // background-color: red;
         position: sticky;
-        top: 1vh;
-        transition: transform 100ms ease-in;
-
+        top: 0;
+        animation-play-state: paused;
+        animation-delay: calc(var(--scroll) * -1000ms);
+        animation-duration: 350ms;
+        animation-iteration-count: 1;
+        animation-fill-mode: both;
+        animation-timing-function: ease-out;
+        
         & > a {
             width: 100%;
             padding: 0.5em 1em;
             border-radius: 20px;
-            background-color: $beige;
             display: inline-block;
         }
+        
+        // &--hor {
+        //     background-color: green;
+        //     position: sticky;
+        //     top: 1vh;
+        // }
     }
 
     &__home {
-        grid-area: home;
-        &--hor {
-            transform: translateX(10vw);
-        }
+        animation-name: home-move;
     }
 
     &__projects {
-        grid-area: projects;
-        &--hor {
-            transform: translateX(30vw);
-        }
+        animation-name: projects-move;
     }
 
     &__about {
-        grid-area: about;
-        &--hor {
-            transform: translateX(50vw);
-        }
+        animation-name: about-move;
     }
 
     &__contact {
-        grid-area: contact;
-        &--hor {
-            transform: translateX(70vw);
-        }
+        animation-name: contact-move
     }
 }
 
 .home {
     background-color: $beige;
+    grid-area: home;
     z-index: -1;
 
     &__image {
@@ -124,8 +125,7 @@ a {
         border-radius: 50px 0 0 50px;
         background-image: linear-gradient(to bottom right, rgba(36, 41, 46, 0.01), rgba(36,41,46,1));
         display: grid;
-        justify-items: center;
-        align-items: center;
+        place-items: center;
         position: relative;
         float: right;
         overflow: hidden;
@@ -165,11 +165,12 @@ a {
     }
 
     &__github {
-        width: 15%;
-        height: auto;
-        margin-top: 5vh;
-        display: block;
-        position: absolute;
+        width: 100%;
+        height: 100%;
+        grid-area: github;
+        display: grid;
+        grid-template-areas: "logo";
+        place-items: center;
 
         &:hover .home__github__logo,
         &:focus .home__github__logo {
@@ -178,53 +179,36 @@ a {
 
         &:hover .home__github__word,
         &:focus .home__github__word {
-            transform: translateX(50%);
-        }
-
-        &:hover .home__github__word__wrapper,
-        &:focus .home__github__word__wrapper {
+            transform: translateX(0);
             clip-path: inset(0%);
         }
 
         &__logo {
-            margin: auto;
+            grid-area: logo;
             font-size: 8rem;
             padding: 0.1em;
             border-radius: 50%;
-            background-color: $beige;
             color: $black;
-            display: block;
+            background-color: $beige;
             position: relative;
+            z-index: 20;
             transition: transform 200ms;
         }
 
         &__word {
             width: 100%;
+            font-size: 3rem;
             text-align: right;
-            display: block;
             padding: 0.125em 1em;
             border-radius: 0 30px 30px 0;
-            background-color: $black;
             color: $beige;
-            font-size: 3rem;
-            position: absolute;
-            left: -50%;
-            transition: transform 200ms;
-
-            &__wrapper {
-                width: 100%;
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                position: absolute;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: 0;
-                z-index: 0;
-                clip-path: inset(0% 0% 0% 50%);
-                transition: clip-path 200ms;
-            }
+            background-color: $black;
+            grid-area: logo;
+            position: relative;
+            z-index: 15;
+            transform: translateX(-50%);
+            clip-path: inset(0% 50% 0% 0%);
+            transition: transform 200ms, clip-path 200ms;
         }
     }
 }
@@ -501,5 +485,41 @@ a {
 @keyframes slideIn {
     to {
         transform: translate(0);
+    }
+}
+
+@keyframes home-move {
+    0% {
+        transform: translateY(0);
+    } 100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes projects-move {
+    0% {
+        transform: translateY(0);
+    } 100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes about-move {
+    0% {
+        transform: translateY(0);
+    } 100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes contact-move {
+    30% {
+        transform: translate(0, 0);
+    } 35% {
+        transform: translate(65vw, -4vh); 
+    } 40% {
+        transform: translate(65vw, -8vh);
+    } 100% {
+        transform: translate(65vw, -65vh);
     }
 }
