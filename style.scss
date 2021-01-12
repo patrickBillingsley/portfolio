@@ -12,6 +12,8 @@ $red: rgb(255, 49, 49);
 }
 
 html {
+    width: 100vw;
+    overflow: hidden;
     scroll-behavior: smooth;
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
@@ -30,19 +32,18 @@ section {
 }
 
 nav {
-    width: 15vw;
-    height: 100vh;
+    width: 100vw;
+    height: 100%;
+    font-size: 2rem;
     display: grid;
-    grid-template-rows: 25vh 1fr 25vh;
+    grid-template-columns: 15vw 1fr;
+    grid-template-rows: 25vh 1fr 325vh;
     grid-template-areas: 
-        "github"
-        "nav-bar"
-        ".";
-    place-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 10;
+        "github     nav-bar-hor"
+        "nav-bar    ."
+        ".          .";
+    position: absolute;
+    // z-index: 10;
 }
 
 li {
@@ -63,54 +64,37 @@ a {
     display: grid;
     grid-template-rows: repeat(4, 1fr);
     align-items: center;
-    // position: relative;
-    // position: sticky;
-    // top: 25vh;
     
+    &-hor {
+        width: 100%;
+        grid-area: nav-bar-hor;
+        grid-column-start: 1;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: start;
+        position: sticky;
+        top: 1vh;
+        transform: translateX(0);
+        transition: transform 200ms;
+        
+        &--hidden {
+            transform: translateX(-100%);
+        }
+    }
+
     &__home,
     &__projects,
     &__about,
     &__contact {
-        font-size: 2rem;
         text-align: center;
-        // background-color: red;
-        position: sticky;
-        top: 0;
-        animation-play-state: paused;
-        animation-delay: calc(var(--scroll) * -1000ms);
-        animation-duration: 350ms;
-        animation-iteration-count: 1;
-        animation-fill-mode: both;
-        animation-timing-function: ease-out;
-        
+
         & > a {
             width: 100%;
-            padding: 0.5em 1em;
+            background-color: beige;
             border-radius: 20px;
+            padding: 0.5em 1em;
             display: inline-block;
         }
-        
-        // &--hor {
-        //     background-color: green;
-        //     position: sticky;
-        //     top: 1vh;
-        // }
-    }
-
-    &__home {
-        animation-name: home-move;
-    }
-
-    &__projects {
-        animation-name: projects-move;
-    }
-
-    &__about {
-        animation-name: about-move;
-    }
-
-    &__contact {
-        animation-name: contact-move
     }
 }
 
@@ -166,11 +150,12 @@ a {
 
     &__github {
         width: 100%;
-        height: 100%;
+        height: 20%;
         grid-area: github;
         display: grid;
         grid-template-areas: "logo";
         place-items: center;
+        place-self: center;
 
         &:hover .home__github__logo,
         &:focus .home__github__logo {
@@ -420,6 +405,17 @@ a {
 }
 
 
+
+.beige {
+    background-color: $beige;
+    width: 12em;
+    height: 2em;
+    border-radius: 30px;
+    display: grid;
+    place-items: center;
+}
+
+
 @keyframes cactusFly {
     to {
         transform: translate(-30%, -50%) rotate(-30deg);
@@ -485,41 +481,5 @@ a {
 @keyframes slideIn {
     to {
         transform: translate(0);
-    }
-}
-
-@keyframes home-move {
-    0% {
-        transform: translateY(0);
-    } 100% {
-        transform: translateY(0);
-    }
-}
-
-@keyframes projects-move {
-    0% {
-        transform: translateY(0);
-    } 100% {
-        transform: translateY(0);
-    }
-}
-
-@keyframes about-move {
-    0% {
-        transform: translateY(0);
-    } 100% {
-        transform: translateY(0);
-    }
-}
-
-@keyframes contact-move {
-    30% {
-        transform: translate(0, 0);
-    } 35% {
-        transform: translate(65vw, -4vh); 
-    } 40% {
-        transform: translate(65vw, -8vh);
-    } 100% {
-        transform: translate(65vw, -65vh);
     }
 }

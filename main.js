@@ -2,37 +2,32 @@ window.addEventListener('scroll', () => {
     document.body.style.setProperty('--scroll', window.pageYOffset / (document.body.offsetHeight - window.innerHeight));
 }, false);
 
-console.log(document.body.style);
-
-const navItems = document.querySelectorAll('.anim');
+const home = document.querySelector('.home');
+const navBarHor = document.querySelector('.nav-bar-hor');
 const aboutItems = document.querySelectorAll('.about__card');
 
-const scrollOptions = {
-    root: document.querySelector('body'),
-    rootMargin: '-25% 0px 0px 0px',
-    threshold: 1
+const navOptions = {
+    threshold: 0.05
 };
 const appearOptions =  {
     threshold: 0.25
 };
 
-// const scrollFollow = new IntersectionObserver(entries => {
-//     entries.forEach(entry => {
-//         const className = `nav-bar__${entry.target.innerText}--hor`;
-//         const classList = entry.target.classList;
-//         if(!entry.isIntersecting) {
-//             if(classList.contains(className)){
-//                 classList.remove(className);
-//                 navReturn(entry.target);
-//             }
-//             return;
-//         } 
-//         if(!classList.contains(className)){
-//             classList.add(className);
-//             navSplit(entry.target);
-//         }
-//     });
-// }, scrollOptions);
+const navChange = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting) {
+            if(!navBarHor.className.includes('nav-bar-hor--hidden')) {
+                navBarHor.classList.add('nav-bar-hor--hidden');
+            }
+            return;
+        }
+        if(!entry.isIntersecting) {
+            if(navBarHor.className.includes('nav-bar-hor--hidden')) {
+                navBarHor.classList.remove('nav-bar-hor--hidden');
+            }
+        }
+    })
+}, navOptions);
 
 const appearOnScroll = new IntersectionObserver((entries, appearOnScroll) => {
     entries.forEach(entry => {
@@ -45,9 +40,8 @@ const appearOnScroll = new IntersectionObserver((entries, appearOnScroll) => {
 }, appearOptions);
 
 
-// navItems.forEach(item => {
-//     scrollFollow.observe(item);
-// });
+navChange.observe(home);
+
 aboutItems.forEach(item => {
     appearOnScroll.observe(item);
 });

@@ -9,6 +9,8 @@
 }
 
 html {
+  width: 100vw;
+  overflow: hidden;
   scroll-behavior: smooth;
   overflow-y: scroll;
   -ms-scroll-snap-type: y mandatory;
@@ -27,18 +29,17 @@ section {
 }
 
 nav {
-  width: 15vw;
-  height: 100vh;
+  width: 100vw;
+  height: 100%;
+  font-size: 2rem;
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: 25vh 1fr 25vh;
-      grid-template-rows: 25vh 1fr 25vh;
-      grid-template-areas: "github" "nav-bar" ".";
-  place-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 10;
+  -ms-grid-columns: 15vw 1fr;
+      grid-template-columns: 15vw 1fr;
+  -ms-grid-rows: 25vh 1fr 325vh;
+      grid-template-rows: 25vh 1fr 325vh;
+      grid-template-areas: "github     nav-bar-hor" "nav-bar    ." ".          .";
+  position: absolute;
 }
 
 li {
@@ -65,51 +66,48 @@ a {
           align-items: center;
 }
 
-.nav-bar__home, .nav-bar__projects, .nav-bar__about, .nav-bar__contact {
-  font-size: 2rem;
-  text-align: center;
+.nav-bar-hor {
+  width: 100%;
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: nav-bar-hor;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
   position: -webkit-sticky;
   position: sticky;
-  top: 0;
-  -webkit-animation-play-state: paused;
-          animation-play-state: paused;
-  -webkit-animation-delay: calc(var(--scroll) * -1000ms);
-          animation-delay: calc(var(--scroll) * -1000ms);
-  -webkit-animation-duration: 350ms;
-          animation-duration: 350ms;
-  -webkit-animation-iteration-count: 1;
-          animation-iteration-count: 1;
-  -webkit-animation-fill-mode: both;
-          animation-fill-mode: both;
-  -webkit-animation-timing-function: ease-out;
-          animation-timing-function: ease-out;
+  top: 1vh;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  -webkit-transition: -webkit-transform 200ms;
+  transition: -webkit-transform 200ms;
+  transition: transform 200ms;
+  transition: transform 200ms, -webkit-transform 200ms;
+}
+
+.nav-bar-hor--hidden {
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+}
+
+.nav-bar__home, .nav-bar__projects, .nav-bar__about, .nav-bar__contact {
+  text-align: center;
 }
 
 .nav-bar__home > a, .nav-bar__projects > a, .nav-bar__about > a, .nav-bar__contact > a {
   width: 100%;
-  padding: 0.5em 1em;
+  background-color: beige;
   border-radius: 20px;
+  padding: 0.5em 1em;
   display: inline-block;
-}
-
-.nav-bar__home {
-  -webkit-animation-name: home-move;
-          animation-name: home-move;
-}
-
-.nav-bar__projects {
-  -webkit-animation-name: projects-move;
-          animation-name: projects-move;
-}
-
-.nav-bar__about {
-  -webkit-animation-name: about-move;
-          animation-name: about-move;
-}
-
-.nav-bar__contact {
-  -webkit-animation-name: contact-move;
-          animation-name: contact-move;
 }
 
 .home {
@@ -180,7 +178,7 @@ a {
 
 .home__github {
   width: 100%;
-  height: 100%;
+  height: 20%;
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   grid-area: github;
@@ -188,6 +186,7 @@ a {
   display: grid;
       grid-template-areas: "logo";
   place-items: center;
+  place-self: center;
 }
 
 .home__github:hover .home__github__logo,
@@ -467,6 +466,16 @@ a {
   z-index: -2;
 }
 
+.beige {
+  background-color: beige;
+  width: 12em;
+  height: 2em;
+  border-radius: 30px;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
 @-webkit-keyframes cactusFly {
   to {
     -webkit-transform: translate(-30%, -50%) rotate(-30deg);
@@ -666,110 +675,6 @@ a {
   to {
     -webkit-transform: translate(0);
             transform: translate(0);
-  }
-}
-
-@-webkit-keyframes home-move {
-  0% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-  100% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-}
-
-@keyframes home-move {
-  0% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-  100% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-}
-
-@-webkit-keyframes projects-move {
-  0% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-  100% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-}
-
-@keyframes projects-move {
-  0% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-  100% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-}
-
-@-webkit-keyframes about-move {
-  0% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-  100% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-}
-
-@keyframes about-move {
-  0% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-  100% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-}
-
-@-webkit-keyframes contact-move {
-  30% {
-    -webkit-transform: translate(0, 0);
-            transform: translate(0, 0);
-  }
-  35% {
-    -webkit-transform: translate(65vw, -4vh);
-            transform: translate(65vw, -4vh);
-  }
-  40% {
-    -webkit-transform: translate(65vw, -8vh);
-            transform: translate(65vw, -8vh);
-  }
-  100% {
-    -webkit-transform: translate(65vw, -65vh);
-            transform: translate(65vw, -65vh);
-  }
-}
-
-@keyframes contact-move {
-  30% {
-    -webkit-transform: translate(0, 0);
-            transform: translate(0, 0);
-  }
-  35% {
-    -webkit-transform: translate(65vw, -4vh);
-            transform: translate(65vw, -4vh);
-  }
-  40% {
-    -webkit-transform: translate(65vw, -8vh);
-            transform: translate(65vw, -8vh);
-  }
-  100% {
-    -webkit-transform: translate(65vw, -65vh);
-            transform: translate(65vw, -65vh);
   }
 }
 /*# sourceMappingURL=style.css.map */
