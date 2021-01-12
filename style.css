@@ -51,6 +51,36 @@ a {
   text-decoration: none;
 }
 
+button {
+  font-size: 3rem;
+}
+
+#contact__name {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: name;
+}
+
+#contact__email {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: email;
+}
+
+#contact__message {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: message;
+}
+
+#contact__submit {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: submit;
+}
+
 .nav-bar {
   width: 100%;
   height: 100%;
@@ -452,7 +482,11 @@ a {
 
 .contact {
   border-radius: 50px 50px 50px 50px;
+  font-size: 3rem;
   background-color: beige;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
 }
 
 .contact::before {
@@ -464,6 +498,37 @@ a {
   top: -50%;
   left: 0;
   z-index: -2;
+}
+
+.contact__form {
+  width: 50%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas: "name       email" "message    message" "submit     submit";
+  gap: 5rem;
+  justify-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+.contact__form__element {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: auto 1fr;
+      grid-template-rows: auto 1fr;
+}
+
+.contact__form__input {
+  font-size: 3rem;
+}
+
+.contact__form__textarea {
+  width: 100%;
+  height: 15em;
+  resize: none;
 }
 
 .beige {

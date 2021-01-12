@@ -126,7 +126,27 @@
         </div>
     </section>
 
-    <section id="contact" class="contact"></section>
+    <section id="contact" class="contact">
+        <form class="contact__form" action="results.html" method="GET">
+            
+            <div id="contact__name" class=contact__form__element>
+                <label class="contact__form__label" for="name">Name</label>
+                <input id="name" class="contact__form__input" name="name" type="text" required>
+            </div>
+
+            <div id="contact__email" class=contact__form__element>
+                <label class="contact__form__label" for="email">Email</label>
+                <input id="email" class="contact__form__input" name="email" type="email" required>
+            </div>
+
+            <div id="contact__message" class=contact__form__element>
+                <label class="contact__form__label" for="message">Message</label>
+                <textarea id="message" class="contact__form__input contact__form__textarea" name="message" required></textarea>
+            </div>
+
+            <button id="contact__submit" type="submit">Submit</button>
+        </form>
+    </section>
 
     <script src="main.js"></script>
 

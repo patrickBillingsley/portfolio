@@ -55,7 +55,30 @@ a {
     text-decoration: none;
 }
 
+button {
+    font-size: 3rem;
+}
 
+
+
+#contact {
+
+    &__name {
+        grid-area: name;
+    }
+
+    &__email {
+        grid-area: email;
+    }
+
+    &__message {
+        grid-area: message;
+    }
+
+    &__submit {
+        grid-area: submit;
+    }
+}
 
 .nav-bar {
     width: 100%;
@@ -390,7 +413,10 @@ a {
 
 .contact {
     border-radius: 50px 50px 50px 50px;
+    font-size: 3rem;
     background-color: $beige;
+    display: grid;
+    place-items: center;
 
     &::before {
         content: "";
@@ -401,6 +427,36 @@ a {
         top: -50%;
         left: 0;
         z-index: -2;
+    }
+
+    &__form {
+        width: 50%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "name       email"
+            "message    message"
+            "submit     submit";
+        gap: 5rem;
+        justify-items: center;
+        position: relative;
+        z-index: 10;
+
+        &__element {
+            width: 100%;
+            display: grid;
+            grid-template-rows: auto 1fr;
+        }
+
+        &__input {
+            font-size: 3rem;
+        }
+
+        &__textarea {
+            width: 100%;
+            height: 15em;
+            resize: none;
+        }
     }
 }
 
