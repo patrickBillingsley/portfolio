@@ -1,14 +1,20 @@
-const tabs = document.querySelectorAll('.section-title__container');
+const tabs = Array.from(document.querySelectorAll('[data-tab]'));
 
 tabs.forEach(tab => {
     tab.addEventListener('click', event => {
-        console.log(event.target.offsetParent);
-        const classList = event.target.offsetParent.classList;
+        tabNum = event.target.dataset.tab;
 
-        if(classList.contains('--hidden')) {
-            classList.remove('--hidden');
-        } else {
-            classList.add('--hidden');
-        }
+        tabs.forEach(tab => {
+            if(tabs.indexOf(tab) < tabNum) {
+                if(tab.offsetParent.classList.contains('--hidden')) {
+                    tab.offsetParent.classList.remove('--hidden');
+                }
+            }
+            if(tabs.indexOf(tab) >= tabNum) {
+                if(!tab.offsetParent.classList.contains('--hidden')) {
+                    tab.offsetParent.classList.add('--hidden');
+                }
+            }
+        })
     })
 })

@@ -57,16 +57,15 @@ input[type="submit"] {
   border: none;
 }
 
-.section-title__container {
-  width: 100vw;
-  height: 7vh;
+.section-title {
   display: -ms-grid;
   display: grid;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  height: 7vh;
+  -ms-flex-line-pack: center;
+      align-content: center;
   -webkit-box-shadow: 0 4px 5px rgba(0, 0, 0, 0.25);
           box-shadow: 0 4px 5px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
 }
 
 .hero {
