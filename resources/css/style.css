@@ -58,9 +58,9 @@ input[type="submit"] {
 }
 
 .section-title {
+  height: 7vh;
   display: -ms-grid;
   display: grid;
-  height: 7vh;
   -ms-flex-line-pack: center;
       align-content: center;
   -webkit-box-shadow: 0 4px 5px rgba(0, 0, 0, 0.25);
@@ -80,6 +80,25 @@ input[type="submit"] {
   -ms-grid-rows: 33vh 1.25fr 1fr;
       grid-template-rows: 33vh 1.25fr 1fr;
       grid-template-areas: "hero-text  ." "hero-sub   hero-sub" "hero-but   hero-but";
+}
+
+.hero > .section-title {
+  width: 100vw;
+  position: absolute;
+  z-index: 10;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-transform: translateY(-7vh);
+          transform: translateY(-7vh);
+  -webkit-transition: -webkit-transform 200ms ease-in-out;
+  transition: -webkit-transform 200ms ease-in-out;
+  transition: transform 200ms ease-in-out;
+  transition: transform 200ms ease-in-out, -webkit-transform 200ms ease-in-out;
+}
+
+.hero .--hidden {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
 }
 
 .hero__text__line {
