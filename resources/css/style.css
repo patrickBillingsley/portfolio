@@ -18,7 +18,7 @@ body {
   display: grid;
   -ms-grid-rows: 1fr (7vh)[3];
       grid-template-rows: 1fr repeat(3, 7vh);
-      grid-template-areas: "home" "projects" "about" "contact";
+      grid-template-areas: "hero" "projects" "about" "contact";
 }
 
 section {
@@ -39,7 +39,6 @@ h2 {
 h3 {
   font-family: Limelight;
   font-size: 3vh;
-  opacity: 0.65;
 }
 
 h4 {
@@ -49,16 +48,32 @@ h4 {
   opacity: 0.65;
 }
 
+p {
+  font-size: clamp(0.75rem, 2vh, 3rem);
+  padding: 1em 0;
+}
+
 button,
 input[type="submit"] {
+  width: 75%;
   font-size: clamp(1.5rem, 5vw, 5rem);
   background-color: #45e3a0;
   padding: 0.5em 1em;
   border: none;
+  border-radius: 5vh;
+  padding: 0.5em 1em;
+  place-self: center;
+  display: -ms-grid;
+  display: grid;
+  place-content: center;
 }
 
 .section-title {
   height: 7vh;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 100;
   display: -ms-grid;
   display: grid;
   -ms-flex-line-pack: center;
@@ -180,16 +195,10 @@ input[type="submit"] {
 }
 
 .hero button {
-  border-radius: 5vh;
-  padding: 0.5em 1em;
   -ms-grid-row: 3;
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
   grid-area: hero-but;
-  place-self: center;
-  display: -ms-grid;
-  display: grid;
-  place-content: center;
 }
 
 .projects {
@@ -200,9 +209,47 @@ input[type="submit"] {
   -webkit-transform: translateY(-73vh);
           transform: translateY(-73vh);
   z-index: 20;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
 }
 
-.projects > .section-title__container {
+.projects__section {
+  padding: 0 5vw;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  -ms-grid-rows: 30vh 5vh 3vh 15vh 8vh 12vh;
+      grid-template-rows: 30vh 5vh 3vh 15vh 8vh 12vh;
+}
+
+.projects__section__img {
+  max-width: 90vw;
+  max-height: 25vh;
+  -webkit-box-shadow: 1em 1em 40px rgba(0, 0, 0, 0.5);
+          box-shadow: 1em 1em 40px rgba(0, 0, 0, 0.5);
+  -webkit-transition: -webkit-transform 200ms ease-in-out, -webkit-box-shadow 200ms ease-in-out;
+  transition: -webkit-transform 200ms ease-in-out, -webkit-box-shadow 200ms ease-in-out;
+  transition: transform 200ms ease-in-out, box-shadow 200ms ease-in-out;
+  transition: transform 200ms ease-in-out, box-shadow 200ms ease-in-out, -webkit-transform 200ms ease-in-out, -webkit-box-shadow 200ms ease-in-out;
+}
+
+.projects__section--hidden {
+  height: 35vh;
+  overflow: hidden;
+}
+
+.projects__section--hidden > img {
+  -webkit-transform: scale(0.9, 0.9);
+          transform: scale(0.9, 0.9);
+  -webkit-box-shadow: 0.25em 0.25em 10px rgba(0, 0, 0, 0.75);
+          box-shadow: 0.25em 0.25em 10px rgba(0, 0, 0, 0.75);
+}
+
+.projects > .section-title {
   background-color: #fd535c;
 }
 
@@ -237,6 +284,7 @@ input[type="submit"] {
 .--hidden {
   -webkit-transform: translateY(0);
           transform: translateY(0);
+  overflow-y: hidden;
 }
 
 @media (orientation: portrait) and (min-width: 575px) {

@@ -22,7 +22,7 @@ body {
     display: grid;
     grid-template-rows: 1fr repeat(3, 7vh);
     grid-template-areas: 
-        "home"
+        "hero"
         "projects"
         "about"
         "contact";
@@ -43,7 +43,7 @@ h2 {
 h3 {
     font-family: Limelight;
     font-size: 3vh;
-    opacity: 0.65;
+    // opacity: 0.65;
 }
 
 h4 {
@@ -53,18 +53,32 @@ h4 {
     opacity: 0.65;
 }
 
+p {
+    font-size: clamp(0.75rem, 2vh, 3rem);
+    padding: 1em 0;
+}
+
 button,
 input[type="submit"] {
+    width: 75%;
     font-size: clamp(1.5rem, 5vw, 5rem);
     background-color: $green;
     padding: 0.5em 1em;
     border: none;
+    border-radius: 5vh;
+    padding: 0.5em 1em;
+    place-self: center;
+    display: grid;
+    place-content: center;
 }
 
 
 
 .section-title {
     height: 7vh;
+    position: sticky;
+    top: 0;
+    z-index: 100;
     display: grid;
     align-content: center;
     box-shadow: 0 4px 5px rgba(0, 0, 0, 0.25);
@@ -168,14 +182,7 @@ input[type="submit"] {
     }
 
     & button {
-        // width: 50%;
-        // height: 35%;
-        border-radius: 5vh;
-        padding: 0.5em 1em;
         grid-area: hero-but;
-        place-self: center;
-        display: grid;
-        place-content: center;
     }
 }
 
@@ -184,8 +191,36 @@ input[type="submit"] {
     grid-area: projects;
     transform: translateY(-73vh);
     z-index: 20;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    
+    &__section {
+        padding: 0 5vw;
+        flex-shrink: 1;
+        display: grid;
+        place-items: center;
+        grid-template-rows: 30vh 5vh 3vh 15vh 8vh 12vh;
 
-    & > .section-title__container {
+        &__img {
+            max-width: 90vw;
+            max-height: 25vh;
+            box-shadow: 1em 1em 40px rgba(0, 0, 0, 0.5);
+            transition: transform 200ms ease-in-out, box-shadow 200ms ease-in-out;
+        }
+
+        &--hidden {
+            height: 35vh;
+            // clip-path: inset(0 0 53% 0);
+            overflow: hidden;
+
+            & > img {
+                transform: scale(0.9, 0.9);
+                box-shadow: 0.25em 0.25em 10px rgba(0, 0, 0, 0.75)
+            }
+        }
+    }
+
+    & > .section-title {
         background-color: $red;
     }
 }
@@ -214,6 +249,7 @@ input[type="submit"] {
 
 .--hidden {
     transform: translateY(0);
+    overflow-y: hidden;
 }
 
 @media (orientation: portrait) and (min-width:575px) {
