@@ -38,6 +38,10 @@ projects.forEach(project => {
         
         let projectNum;
 
+        if(tagName == 'SPAN') {
+            return;
+        }
+
         if(tagName == 'DIV') {
             projectNum = event.target.dataset.project;
         } else {
@@ -59,5 +63,18 @@ projects.forEach(project => {
                 }
             }
         })
+    })
+})
+
+const backButtons = Array.from(document.querySelectorAll('#back-button'));
+
+backButtons.forEach(button => {
+    button.addEventListener('click', event => {
+        const classes = event.target.parentElement.classList;
+        const className = 'projects__section--hidden';
+
+        if(!classes.contains(className)) {
+            classes.add(className);
+        }
     })
 })

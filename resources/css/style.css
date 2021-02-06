@@ -50,15 +50,13 @@ h4 {
 
 p {
   font-size: clamp(0.75rem, 2vh, 3rem);
-  padding: 1em 0;
 }
 
-button,
+a,
 input[type="submit"] {
   width: 75%;
   font-size: clamp(1.5rem, 5vw, 5rem);
   background-color: #45e3a0;
-  padding: 0.5em 1em;
   border: none;
   border-radius: 5vh;
   padding: 0.5em 1em;
@@ -69,7 +67,8 @@ input[type="submit"] {
 }
 
 .section-title {
-  height: 7vh;
+  width: 100vw;
+  min-height: 7vh;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
@@ -194,7 +193,7 @@ input[type="submit"] {
       align-self: end;
 }
 
-.hero button {
+.hero a {
   -ms-grid-row: 3;
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
@@ -209,44 +208,95 @@ input[type="submit"] {
   -webkit-transform: translateY(-73vh);
           transform: translateY(-73vh);
   z-index: 20;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-rows: 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .projects__section {
-  padding: 0 5vw;
-  -ms-flex-negative: 1;
-      flex-shrink: 1;
-  display: -ms-grid;
-  display: grid;
-  place-items: center;
-  -ms-grid-rows: 30vh 5vh 3vh 15vh 8vh 12vh;
-      grid-template-rows: 30vh 5vh 3vh 15vh 8vh 12vh;
+  height: 73vh;
+  overflow: hidden;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  -webkit-transition: -webkit-flex-shrink 300ms;
+  transition: -webkit-flex-shrink 300ms;
+  transition: flex-shrink 300ms;
+  transition: flex-shrink 300ms, -webkit-flex-shrink 300ms, -ms-flex-negative 300ms;
+}
+
+.projects__section span:nth-of-type(1) {
+  width: 25%;
+  font-size: clamp(1rem, 2vw, 3rem);
+  background-color: #fd535c;
+  border: none;
+  border-radius: 5vh;
+  padding: 0;
+  margin: 2em;
+  display: block;
+  position: absolute;
+  z-index: 30;
+  cursor: pointer;
+}
+
+.projects__section h4 {
+  margin-top: 0;
+}
+
+.projects__section * {
+  margin: 1.2rem auto 0;
+  -webkit-transition: opacity 500ms ease-out, -webkit-transform 500ms ease-in-out;
+  transition: opacity 500ms ease-out, -webkit-transform 500ms ease-in-out;
+  transition: transform 500ms ease-in-out, opacity 500ms ease-out;
+  transition: transform 500ms ease-in-out, opacity 500ms ease-out, -webkit-transform 500ms ease-in-out;
 }
 
 .projects__section__img {
   max-width: 90vw;
   max-height: 25vh;
-  -webkit-box-shadow: 1em 1em 40px rgba(0, 0, 0, 0.5);
-          box-shadow: 1em 1em 40px rgba(0, 0, 0, 0.5);
-  -webkit-transition: -webkit-transform 200ms ease-in-out, -webkit-box-shadow 200ms ease-in-out;
-  transition: -webkit-transform 200ms ease-in-out, -webkit-box-shadow 200ms ease-in-out;
-  transition: transform 200ms ease-in-out, box-shadow 200ms ease-in-out;
-  transition: transform 200ms ease-in-out, box-shadow 200ms ease-in-out, -webkit-transform 200ms ease-in-out, -webkit-box-shadow 200ms ease-in-out;
+  position: relative;
+  -webkit-filter: drop-shadow(1em 1em 40px rgba(0, 0, 0, 0.5));
+          filter: drop-shadow(1em 1em 40px rgba(0, 0, 0, 0.5));
+  -webkit-transition: -webkit-transform 500ms 300ms ease-in-out, -webkit-filter 500ms 300ms ease-in-out;
+  transition: -webkit-transform 500ms 300ms ease-in-out, -webkit-filter 500ms 300ms ease-in-out;
+  transition: transform 500ms 300ms ease-in-out, filter 500ms 300ms ease-in-out;
+  transition: transform 500ms 300ms ease-in-out, filter 500ms 300ms ease-in-out, -webkit-transform 500ms 300ms ease-in-out, -webkit-filter 500ms 300ms ease-in-out;
 }
 
 .projects__section--hidden {
-  height: 35vh;
-  overflow: hidden;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+}
+
+.projects__section--hidden span:nth-of-type(1) {
+  opacity: 0;
 }
 
 .projects__section--hidden > img {
-  -webkit-transform: scale(0.9, 0.9);
-          transform: scale(0.9, 0.9);
-  -webkit-box-shadow: 0.25em 0.25em 10px rgba(0, 0, 0, 0.75);
-          box-shadow: 0.25em 0.25em 10px rgba(0, 0, 0, 0.75);
+  -webkit-transform: scale(80%);
+          transform: scale(80%);
+  -webkit-filter: grayscale(20%) drop-shadow(0.1em 0.1em 5px rgba(0, 0, 0, 0.9));
+          filter: grayscale(20%) drop-shadow(0.1em 0.1em 5px rgba(0, 0, 0, 0.9));
+  position: relative;
+  cursor: pointer;
+  -webkit-transition: -webkit-transform 500ms ease-in-out, -webkit-filter 500ms ease-in-out;
+  transition: -webkit-transform 500ms ease-in-out, -webkit-filter 500ms ease-in-out;
+  transition: transform 500ms ease-in-out, filter 500ms ease-in-out;
+  transition: transform 500ms ease-in-out, filter 500ms ease-in-out, -webkit-transform 500ms ease-in-out, -webkit-filter 500ms ease-in-out;
+}
+
+.projects__section--hidden > img ~ h3,
+.projects__section--hidden > img ~ h4 {
+  -webkit-transform: translateY(-1.25rem);
+          transform: translateY(-1.25rem);
+}
+
+.projects__section--hidden > img ~ p,
+.projects__section--hidden > img ~ button {
+  opacity: 0;
 }
 
 .projects > .section-title {
