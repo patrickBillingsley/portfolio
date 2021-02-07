@@ -1,3 +1,10 @@
+// ----------  MOBILE VH FIX  ----------
+
+window.addEventListener('resize', () => {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`)
+})
+
 const tabs = Array.from(document.querySelectorAll('[data-tab]'));
 
 tabs.forEach(tab => {

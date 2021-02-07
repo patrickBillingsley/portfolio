@@ -15,6 +15,7 @@ $green: #45e3a0;
 body {
     width: 100vw;
     height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     font-family: Montserrat;
     text-align: center;
     overflow: hidden;
